@@ -15,5 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DotNet2018.Api\DotNet2018.Api.csproj" />
+    <ProjectReference Include="..\DotNet2018.BackgroundServices\DotNet2018.BackgroundServices.csproj" />
+    <ProjectReference Include="..\DotNet2018.Infrastructure\DotNet2018.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

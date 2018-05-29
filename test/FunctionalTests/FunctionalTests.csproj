@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>$(NetCoreTargetVersion)</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+  <PackageReference Include="FluentAssertions" Version="$(FluentAssertionsVersion)" />
+  <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="$(ASPNetCoreTestHostVersion)" />
+  <PackageReference Include="Microsoft.NET.Test.Sdk" Version="$(MicrosoftNETTestSdkPackageVersion)" />
+  <PackageReference Include="xunit" Version="$(XUnitPackageVersion)" />
+  <PackageReference Include="xunit.runner.visualstudio" Version="$(XUnitRunnerVisualstudio)" />
+  <DotNetCliToolReference Include="dotnet-xunit" Version="$(DotnetXUnitPackageVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\DotNet2018.Api\DotNet2018.Api.csproj" />
+    <ProjectReference Include="..\..\src\DotNet2018.Application\DotNet2018.Application.csproj" />
+    <ProjectReference Include="..\..\src\DotNet2018.Infrastructure\DotNet2018.Infrastructure.csproj" />
+  </ItemGroup>
+  
+</Project>

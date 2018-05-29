@@ -8,15 +8,9 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ApplicationBuilderExtensions
     {
-        public static IApplicationBuilder UseOpenApi(this IApplicationBuilder app)
+        public static IApplicationBuilder UseIf(this IApplicationBuilder app, bool condition, Func<IApplicationBuilder, IApplicationBuilder> action)
         {
-            app.UseSwagger();
-            app.UseSwaggerUI(setup =>
-            {
-                setup.SwaggerEndpoint("/swagger/v1/swagger.json", "DotNet 2018");
-            });
-
-            return app;
+            return condition ? action(app) : app;
         }
     }
 }

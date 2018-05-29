@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DotNet2018.BackgroundServices;
+using DotNet2018.Host.Filters;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace DotNet2018.Host
 {
@@ -19,6 +16,10 @@ namespace DotNet2018.Host
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .ConfigureServices(services =>
+                {                    
+                    services.AddTransient<IStartupFilter, HostStartupFilter>();
+                    services.AddSingleton<IHostedService, SpeakerAddedTeamsNotificationService>();
+                }).UseStartup<Startup>();
     }
 }
