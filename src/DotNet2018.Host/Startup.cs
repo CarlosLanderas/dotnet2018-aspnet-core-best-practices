@@ -25,7 +25,7 @@ namespace DotNet2018.Host
             Configuration.Configure(
                 app, 
                 host => host
-                    .UseIf(env.IsDevelopment(), appBuilder => appBuilder.UseDeveloperExceptionPage())
+                    //.UseIf(env.IsDevelopment(), appBuilder => appBuilder.UseDeveloperExceptionPage())
                     .UseSwagger()
                     .UseSwaggerUI(setup =>
                     {
